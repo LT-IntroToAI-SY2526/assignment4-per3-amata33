@@ -28,6 +28,11 @@ class Dog:
         #make the dog bark
         return f"{self.name} says guau guau!!!"
     
+    def birthday(self):
+        """celebrate the dog's bday"""
+        self.age += 1
+        print(f"Celebrating {self.name}'s birthday!")
+    
 
 
 
@@ -37,6 +42,8 @@ print(myZawg)
 print(myOtherZawg)
 
 print (f"{myZawg.bark()} \n {myOtherZawg.bark()}")
+myZawg.birthday()
+print(myZawg)
 
 
 
