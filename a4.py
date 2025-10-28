@@ -9,14 +9,12 @@ class TTTBoard:
         board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
-    def __init__(self, tttb, ):
 
-        
-    
+    pass
 
 
-     def play_tic_tac_toe() -> None:
-        pass
+def play_tic_tac_toe() -> None:
+    """Uses your class to play TicTacToe"""
 
     def is_int(maybe_int: str):
         """Returns True if val is int, False otherwise
@@ -33,8 +31,7 @@ class TTTBoard:
         except ValueError:
             return False
 
- # complete next line
-    brd = #TTTBoard()
+    brd = TTTBoard()
     players = ["X", "O"]
     turn = 0
 
