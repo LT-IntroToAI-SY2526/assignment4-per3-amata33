@@ -28,9 +28,19 @@ class TTTBoard:
 
 
     def has_won(self, player):
-        pass #boolean
+        wCombos = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+        for combo in wCombos:
+            if self.board[combo] == player and combo[1] == player and combo[2] == player:
+                return True
+        return False 
 
+    def game_over(self):
+        return self.has_won("X") or self.has_won("O") or '*' not in self.board
+    
 
+    def clear(self):
+        """clear the board for a new game"""
+        self.board = ['*'] * 9
 
 
     def play_tic_tac_toe() -> None:
@@ -53,20 +63,20 @@ class TTTBoard:
         except ValueError:
             return False
 
-    brd = TTTBoard()
-    players = ["X", "O"]
-    turn = 0
+brd = TTTBoard()
+players = ["X", "O"]
+turn = 0
 
-    while not brd.game_over():
-        print(brd)
-        move: str = input(f"Player {players[turn]} what is your move? ")
+while not brd.game_over():
+    print(brd)
+    move: str = input(f"Player {players[turn]} what is your move? ")
 
-        if not is_int(move):
-            raise ValueError(
-                f"Given invalid position {move}, position must be integer between 0 and 8 inclusive"
-            )
+    if not is_int(move):
+        raise ValueError(
+            f"Given invalid position {move}, position must be integer between 0 and 8 inclusive"
+        )
 
-        if brd.make_move(players[turn], int(move)):
+    if brd.make_move(players[turn], int(move)):
             turn = not turn
 
     print(f"\nGame over!\n\n{brd}")
