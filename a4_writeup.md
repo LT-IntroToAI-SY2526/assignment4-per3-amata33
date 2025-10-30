@@ -13,9 +13,9 @@ I would add an algorithm that would rival the player with "logical" strategies. 
 3. If you add a computer player, explain (doesn't have to be super technical) how you might get the computer player to play the best move every time. *Note - I am not grading this for a correct answer, I just want to know your thoughts on how you might accomplish it.
 
 Let's say the opponent has the board like this 
-* X *
-O X *
-X * O
+#* X * (# is being used to not make * a bullet point)
+ O X *
+ X * O
 The computer will cover the bottom row center with an O to not let the player win. Also, as mentioned before, it could use the three corners method.
 O * O
 X * *
