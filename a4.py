@@ -18,12 +18,19 @@ class TTTBoard:
 
 
     def make_move(self, player, pos):
-        pass
+        if pos < 0 or pos > 8:
+            return False
+        string_index = pos + (pos // 3)
+        if self.board[string_index] != "*":
+            return False
+        self.board = self.board[:string_index] + player + self.board[string_index + 1:]
+        return True
+
 
     def has_won(self, player):
         pass #boolean
 
-    
+
 
 
     def play_tic_tac_toe() -> None:
