@@ -41,7 +41,7 @@ myOtherZawg = Dog("peach and white", "dumbo", 1, "anything edible")
 print(myZawg)
 print(myOtherZawg)
 
-print (f"{myZawg.bark()} \n {myOtherZawg.bark()}")
+print (f"{myZawg.bark()}\n{myOtherZawg.bark()}")
 myZawg.birthday()
 print(myZawg)
 
