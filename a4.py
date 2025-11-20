@@ -19,19 +19,16 @@ class TTTBoard:
 
 
     def make_move(self, player, pos):
-        if pos <= 0 or pos > 8: #edit
-            return False
-        string_index = pos + (pos // 3)
-        if self.board[string_index] != "*":
-            return False
-        self.board = self.board[:string_index] + player + self.board[string_index + 1:]
-        return True
+        if 0 <= pos <= 8 and self.board[pos] == '*':
+            self.board[pos] = player
+            return True
+        return False
 
 
     def has_won(self, player):
         wCombos = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
         for combo in wCombos:
-            if self.board[combo] == player and combo[1] == player and combo[2] == player:
+            if self.board[combo[0]] == player and self.board[combo[1]] == player and self.board[combo[2]] == player:
                 return True
         return False 
 
@@ -42,22 +39,11 @@ class TTTBoard:
     def clear(self):
         """clear the board for a new game"""
         self.board = ['*'] * 9
-
-
-    def play_tic_tac_toe() -> None:
-        pass
     
-    """Uses your class to play TicTacToe"""
+def play_tic_tac_toe() -> None:
+    print("Starting your game")
 
-    def is_int(maybe_int: str):
-        """Returns True if val is int, False otherwise
-
-        Args:
-            maybe_int - string to check if it's an int
-
-        Returns:
-            True if maybe_int is an int, False otherwise
-        """
+def isAnInt(maybe_int: str):
         try:
             int(maybe_int)
             return True
@@ -72,7 +58,7 @@ while not brd.game_over():
     print(brd)
     move: str = input(f"Player {players[turn]} what is your move? ")
 
-    if not is_int(move):
+    if not isAnInt(move):
         raise ValueError(
             f"Given invalid position {move}, position must be integer between 0 and 8 inclusive"
         )
@@ -121,5 +107,4 @@ if __name__ == "__main__":
 
     print("All tests passed!")
 
-    # uncomment to play!
-    # play_tic_tac_toe()
+    play_tic_tac_toe()
